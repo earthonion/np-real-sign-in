@@ -1,0 +1,38 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/psp2dev/psp2dev:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install PS4 and PS5 Payload SDKs
+        run: |
+          apt-get update && apt-get install -y wget tar
+          mkdir -p /opt/ps4-payload-sdk /opt/ps5-payload-sdk
+          wget -qO- https://github.com/ps4-payload-dev/pacbrew-packages/releases/latest/download/ps4-payload-sdk.tar.gz | tar xz -C /opt/ps4-payload-sdk
+          wget -qO- https://github.com/ps5-payload-dev/sdk/releases/latest/download/ps5-payload-sdk.tar.gz | tar xz -C /opt/ps5-payload-sdk
+
+      - name: Build PS4 ELF
+        run: make build-ps4
+        env:
+          PS4_PAYLOAD_SDK: /opt/ps4-payload-sdk
+
+      - name: Build PS5 ELF
+        run: make build-ps5
+        env:
+          PS5_PAYLOAD_SDK: /opt/ps5-payload-sdk
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            bin/np-restore-account-ps4.elf
+            bin/np-restore-account-ps5.elf
