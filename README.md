@@ -2,6 +2,9 @@
 
 Sign in to your real PSN account on a jailbroken PS4/PS5. This payload restores authentic `config.dat` and `auth.dat` from a legitimately signed-in console, writing the account configuration to the system registry so you can use your real PSN account.
 
+> [!IMPORTANT]
+> This could corrupt your user! Do not use if you have data at risk of being lost. Corrupting your user could result in a soft brick and will need to be factory restored in safe mode.
+
 ## Requirements
 
 - A **source console** that is signed in to PSN and activated (latest firmware retail console, testkit, or devkit)
