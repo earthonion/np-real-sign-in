@@ -1,6 +1,6 @@
-# np-real-sign-in
+# np-account-restore
 
-Sign in to your real PSN account on a jailbroken PS4/PS5. This payload restores authentic `config.dat` and `auth.dat` from a legitimately signed-in console, writing the account configuration to the system registry so you can use your real PSN account.
+Restore your PSN account configuration on a jailbroken PS4/PS5. This payload restores authentic `config.dat` and `auth.dat` from an activated console, writing the account configuration to the system registry.
 
 > [!IMPORTANT]
 > This could corrupt your user! Do not use if you have data at risk of being lost. Corrupting your user could result in a soft brick and will need to be factory restored in safe mode.
@@ -63,7 +63,7 @@ The payload reads `config.dat` for the foreground user and writes all account fi
 
 ## Step 4: Reboot
 
-Reboot the console. After reboot, you will be signed in to your real PSN account.
+Reboot the console. After reboot, your account will be restored.
 
 ## Building from source
 
