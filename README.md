@@ -10,11 +10,18 @@ Sign in to your real PSN account on a jailbroken PS4/PS5. This payload restores 
 
 ## Step 1: Extract files from the source console
 
-On your signed-in, activated source console, locate these two files:
+On your signed-in, activated source console, locate these files:
 
 ```
 /system_data/priv/home/<userid>/config.dat
 /system_data/priv/home/<userid>/np/auth.dat
+```
+
+**PS4 only** — you also need these two files:
+
+```
+/user/home/<userid>/np/account.dat
+/user/home/<userid>/np/token.dat
 ```
 
 `<userid>` is the hex user ID of the signed-in account (e.g. `10000000`).
@@ -40,6 +47,13 @@ After restoring the backup and jailbreaking (if needed), copy the files you extr
 ```
 /system_data/priv/home/<userid>/config.dat
 /system_data/priv/home/<userid>/np/auth.dat
+```
+
+**PS4 only** — also copy:
+
+```
+/user/home/<userid>/np/account.dat
+/user/home/<userid>/np/token.dat
 ```
 
 Make sure `<userid>` matches the user ID on the target console.
